@@ -14,5 +14,25 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: pg-hotel-backend
+
+    ports:
+      - "3001:3000"
+
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+    environment:
+      NODE_ENV: development
+
+    depends_on:
+      - postgres
+
 volumes:
   postgres_data:

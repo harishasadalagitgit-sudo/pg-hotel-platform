@@ -1,0 +1,29 @@
+# Dependencies
+node_modules
+
+# Environment files
+.env
+.env.*
+
+# Next.js
+.next
+out
+
+# NestJS
+dist
+
+# Coverage
+coverage
+
+# Logs
+*.log
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Prisma
+prisma/dev.db
+
+# Docker
+docker-data

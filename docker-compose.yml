@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: pg-hotel-db
+
+    environment:
+      POSTGRES_DB: pg_hotel
+      POSTGRES_USER: pgadmin
+      POSTGRES_PASSWORD: pgpassword
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

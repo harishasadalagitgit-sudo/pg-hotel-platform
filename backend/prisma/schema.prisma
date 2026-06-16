@@ -29,3 +29,29 @@ model User {
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 }
+
+enum RoomType {
+  HOTEL
+  MONTHLY_AC
+  MONTHLY_NON_AC
+  WEEKLY_NON_AC
+}
+
+enum RoomStatus {
+  AVAILABLE
+  OCCUPIED
+  MAINTENANCE
+}
+
+model Room {
+  id          String       @id @default(cuid())
+  roomNumber  String       @unique
+  floor       Int
+  roomType    RoomType
+  capacity    Int
+  isAc        Boolean
+  status      RoomStatus   @default(AVAILABLE)
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
